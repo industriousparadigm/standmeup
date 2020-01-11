@@ -1,28 +1,29 @@
 import React from 'react'
-import '../../global-style.scss'
-import LoginForm from '../login-form'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import AboutPage from '../about'
+import NavBar from '../nav-bar'
+import { useAuth0 } from '../../react-auth0-spa'
+import { Router, Route, Switch } from 'react-router-dom'
+import Profile from '../profile'
+import history from '../../utils/history'
 
-const App: React.FC = () => {
+function App() {
+  const { loading } = useAuth0()
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
   return (
-    <Router>
-      <div className='App'>
-        <h1>Stand up and be counted</h1>
-        <nav>
-          <Link to='/about'>More info</Link>
-        </nav>
-        <br />
+    <div className='App'>
+      <Router history={history}>
+        <header>
+          <NavBar />
+        </header>
         <Switch>
-          <Route path='/about'>
-            <AboutPage />
-          </Route>
-          <Route path='/auth'>
-            <LoginForm />
-          </Route>
+          <Route path='/' exact />
+          <Route path='/profile' component={Profile} />
         </Switch>
-      </div>
-    </Router>
+      </Router>
+    </div>
   )
 }
 
