@@ -1,11 +1,12 @@
 import React from 'react'
-import NavBar from '../nav-bar'
 import { useAuth0 } from '../../react-auth0-spa'
 import { Router, Route, Switch } from 'react-router-dom'
+import PrivateRoute from '../private-route'
+import NavBar from '../nav-bar'
 import Profile from '../profile'
 import history from '../../utils/history'
 
-function App() {
+const App: React.FC = () => {
   const { loading } = useAuth0()
 
   if (loading) {
@@ -20,7 +21,7 @@ function App() {
         </header>
         <Switch>
           <Route path='/' exact />
-          <Route path='/profile' component={Profile} />
+          <PrivateRoute path='/profile' component={Profile} />
         </Switch>
       </Router>
     </div>
