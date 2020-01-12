@@ -16,7 +16,8 @@ const NavBar = () => {
           <button onClick={() => logout()}>Log out</button>
           <span>
             <Link to='/'>Home</Link>&nbsp;
-            <Link to='/profile'>Profile</Link>
+            <Link to='/profile'>Profile</Link>&nbsp;
+            <Link to='/external-api'>External API</Link>
           </span>
         </>
       )}

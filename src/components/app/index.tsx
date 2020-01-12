@@ -5,6 +5,7 @@ import PrivateRoute from '../private-route'
 import NavBar from '../nav-bar'
 import Profile from '../profile'
 import history from '../../utils/history'
+import ExternalApi from '../external-api'
 
 const App: React.FC = () => {
   const { loading } = useAuth0()
@@ -22,6 +23,7 @@ const App: React.FC = () => {
         <Switch>
           <Route path='/' exact />
           <PrivateRoute path='/profile' component={Profile} />
+          <PrivateRoute path='/external-api' component={ExternalApi} />
         </Switch>
       </Router>
     </div>
