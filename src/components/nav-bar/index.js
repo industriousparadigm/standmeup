@@ -1,6 +1,7 @@
 import React from 'react'
 import { useAuth0 } from '../../react-auth0-spa'
 import { Link } from 'react-router-dom'
+import { Button } from '@material-ui/core'
 
 const NavBar = () => {
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0()
@@ -8,16 +9,30 @@ const NavBar = () => {
   return (
     <div>
       {!isAuthenticated && (
-        <button onClick={() => loginWithRedirect({})}>Log in</button>
+        <Button
+          variant='contained'
+          color='primary'
+          onClick={() => loginWithRedirect({})}
+        >
+          Log in
+        </Button>
       )}
 
       {isAuthenticated && (
         <>
-          <button onClick={() => logout()}>Log out</button>
+          <Button variant='contained' color='primary' onClick={() => logout()}>
+            Log out
+          </Button>
           <span>
-            <Link to='/'>Home</Link>&nbsp;
-            <Link to='/profile'>Profile</Link>&nbsp;
-            <Link to='/external-api'>External API</Link>
+            <Link to='/'>
+              <Button>Home</Button>
+            </Link>
+            <Link to='/profile'>
+              <Button>Profile</Button>
+            </Link>
+            <Link to='/external-api'>
+              <Button>External API</Button>
+            </Link>
           </span>
         </>
       )}
