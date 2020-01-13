@@ -22,11 +22,16 @@ const App: React.FC = () => {
           <NavBar />
         </header>
         <Switch>
-          <Route path='/' exact />
+          <Route path='/' exact>
+            Welcome to the main page
+          </Route>
           <Route path='/topics' exact>
             <Topics />
           </Route>
-          <PrivateRoute path='/bitches' component={<h1>Hello bitches</h1>} />
+          <PrivateRoute
+            path='/bitches'
+            component={() => <h1>Hello suckers</h1>}
+          />
           <PrivateRoute path='/profile' component={Profile} />
           <PrivateRoute path='/external-api' component={ExternalApi} />
         </Switch>

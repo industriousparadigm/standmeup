@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { useAuth0 } from '../../react-auth0-spa'
+import { Button } from '@material-ui/core'
 
 const ExternalApi = () => {
   const [showResult, setShowResult] = useState(false)
@@ -30,7 +31,9 @@ const ExternalApi = () => {
   return (
     <>
       <h1>External API</h1>
-      <button onClick={callApi}>Ping API</button>
+      <Button variant='contained' onClick={callApi}>
+        Ping API
+      </Button>
       {showResult && <code>{JSON.stringify(apiMessage, null, 2)}</code>}
     </>
   )
