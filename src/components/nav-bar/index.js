@@ -30,6 +30,10 @@ const NavBar = () => {
             <Link to='/profile'>
               <Button>Profile</Button>
             </Link>
+            <Link to='/topics'>
+              <Button>Topics</Button>
+            </Link>
+
             <Link to='/external-api'>
               <Button>External API</Button>
             </Link>

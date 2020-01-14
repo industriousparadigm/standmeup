@@ -7,16 +7,26 @@ import Profile from '../profile'
 import history from '../../utils/history'
 import ExternalApi from '../external-api'
 import Topics from '../topics'
+import { makeStyles } from '@material-ui/core/styles'
+
+const useStyles = makeStyles({
+  root: {
+    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    height: '100vh'
+  }
+})
 
 const App: React.FC = () => {
   const { loading } = useAuth0()
+
+  const classes = useStyles()
 
   if (loading) {
     return <div>Loading...</div>
   }
 
   return (
-    <div className='App'>
+    <div className={classes.root}>
       <Router history={history}>
         <header>
           <NavBar />
